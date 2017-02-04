@@ -3,27 +3,23 @@ import axios from 'axios';
 import _ from 'lodash';
 import { key } from '../../config';
 
-function getNYT () {
-  return axios.get(`https://newsapi.org/v1/articles?source=the-new-york-times&apiKey=${key}`)
-}
-
-function getWaPo() {
-  return axios.get(`https://newsapi.org/v1/articles?source=the-washington-post&apiKey=${key}`)
-}
-
-function getDieZeit() {
-  return axios.get(`https://newsapi.org/v1/articles?source=die-zeit&apiKey=${key}`)
+function createRequest(source) {
+  return axios.get(`https://newsapi.org/v1/articles?source=${source}&apiKey=${key}`)
 }
 
 export function fetchNews() {
+  const requests = ['the-new-york-times', 'the-washington-post', 'die-zeit', 'espn']
+    .map(newspaper => createRequest(newspaper));
+
   return function (dispatch) {
-    axios.all([getNYT(), getWaPo(), getDieZeit()])
-      .then(axios.spread((res1, res2, res3) => {
+    axios.all(requests)
+      .then((response) => {
+        let responseArray = response.map(a => a.data.articles)
         dispatch({
           type: FETCH_NEWS_FEED,
-          payload: _.shuffle([ ...res1.data.articles, ...res2.data.articles, ...res3.data.articles ])
+          payload: _.shuffle(_.flatten(responseArray))
         })
-      }))
+      })
       .catch((error) => {
         console.log(error)
       })
