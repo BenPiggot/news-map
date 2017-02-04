@@ -22,9 +22,9 @@ class NewsList extends Component {
         {this.props.articles.map(a => {
           return (  
             <a key={a.title} href={a.url}>
-              <Card style={styles}>
-                <CardHeader title={a.title}  style={{height: '125'}}/>
-                <CardMedia style={{ maxHeight: '150', overflow: 'hidden', width: 'auto'}}>
+              <Card key={a.title} style={styles}>
+                <CardHeader title={a.title}  style={{height: 125}}/>
+                <CardMedia style={{ maxHeight: 150, overflow: 'hidden', width: 'auto'}}>
                   <img  src={a.urlToImage} />
                 </CardMedia>
               </Card>

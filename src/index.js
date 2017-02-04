@@ -4,18 +4,20 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import store from './store';
-import NewsList from './components/NewsList';
+import AppContainer from './containers/AppContainer';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
-class AppContainer extends Component {
+class App extends Component {
   render () {
     return (
       <Provider store={store}>
         <MuiThemeProvider>
-          <NewsList />
+          <AppContainer />
         </MuiThemeProvider>
       </Provider>
     )
   }
 }
 
-render(<AppContainer />, document.getElementById('app'));
+render(<App />, document.getElementById('app'));
