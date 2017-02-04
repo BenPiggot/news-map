@@ -5,7 +5,7 @@ import MenuItem from 'material-ui/MenuItem';
 class SourcesSelector extends Component {
   render () {
     return (
-      <SelectField>
+      <SelectField floatingLabelText="Choose a Source">
         <MenuItem value='the-new-york-times' primaryText="New York Times" label="New York Times"/>
         <MenuItem value='the-washington-post' primaryText="Washington Post" label="Washington Post" />
         <MenuItem value='die-zeit' primaryText="Die Zeit" label="Die Zeit"/>

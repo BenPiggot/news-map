@@ -4,7 +4,7 @@ import SourcesSelector from '../components/SourcesSelector';
 
 const AppContainer = () => {
   return (
-    <div>
+    <div className="container">
       <SourcesSelector />
       <NewsList />
     </div>

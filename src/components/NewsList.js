@@ -17,7 +17,7 @@ class NewsList extends Component {
       display: 'inline-block'
     }
     return (
-      <div className="container">
+      <div>
         <h1>New Articles</h1>
         {this.props.articles.map(a => {
           return (  
