@@ -1,4 +1,5 @@
-import { FETCH_NEWS_FEED } from './types';
+import { FETCH_NEWS_FEED, SELECT_SEARCH } from './types';
+import sources from './sources';
 import axios from 'axios';
 import _ from 'lodash';
 import { key } from '../../config';
@@ -7,9 +8,9 @@ function createRequest(source) {
   return axios.get(`https://newsapi.org/v1/articles?source=${source}&apiKey=${key}`)
 }
 
-export function fetchNews() {
-  const requests = ['the-new-york-times', 'the-washington-post', 'die-zeit', 'espn']
-    .map(newspaper => createRequest(newspaper));
+export function fetchNews(value = 'us') {
+  const newsSources = sources[value];
+  const requests = newsSources.map(newspaper => createRequest(newspaper));
 
   return function (dispatch) {
     axios.all(requests)

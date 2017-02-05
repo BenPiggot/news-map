@@ -16,6 +16,14 @@ class NewsList extends Component {
       marginRight: '2%', 
       display: 'inline-block'
     }
+
+    const cardMediaStyles = { 
+      minHeight: 150, 
+      maxHeight: 150, 
+      overflow: 'hidden', 
+      width: 'auto'
+    }
+
     return (
       <div>
         <h1>New Articles</h1>
@@ -24,8 +32,8 @@ class NewsList extends Component {
             <a key={a.title} href={a.url}>
               <Card key={a.title} style={styles}>
                 <CardHeader title={a.title}  style={{height: 125}}/>
-                <CardMedia style={{ maxHeight: 150, overflow: 'hidden', width: 'auto'}}>
-                  <img  src={a.urlToImage} />
+                <CardMedia style={cardMediaStyles}>
+                  <img src={a.urlToImage} />
                 </CardMedia>
               </Card>
             </a>

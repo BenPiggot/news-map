@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { fetchNews } from '../actions/actions';
 
 class SourcesSelector extends Component {
+  handleSelect (event, index, value) {
+    this.props.fetchNews(value)
+  }
+
   render () {
     return (
-      <SelectField floatingLabelText="Choose a Source">
-        <MenuItem value='the-new-york-times' primaryText="New York Times" label="New York Times"/>
-        <MenuItem value='the-washington-post' primaryText="Washington Post" label="Washington Post" />
-        <MenuItem value='die-zeit' primaryText="Die Zeit" label="Die Zeit"/>
-        <MenuItem value='espn' primaryText="ESPN" label="ESPN"/>
+      <SelectField style={{fontFamily: 'Raleway'}} onChange={this.handleSelect.bind(this)} floatingLabelText="Choose a Section">
+        <MenuItem value='us' primaryText="US News" label="US News"/>
+        <MenuItem value='international' primaryText="International News" label="International News" />
+        <MenuItem value='sports' primaryText="Sports" label="Sports"/>
+        <MenuItem value='technology' primaryText="Technology" label="Technology"/>
+        <MenuItem value='business' primaryText="Business" label="Business"/>
+        <MenuItem value='german' primaryText="German Language News" label="German Language News"/>
       </SelectField>
     )
   }
 }
 
-export default SourcesSelector;
+export default connect(null, { fetchNews })(SourcesSelector);
