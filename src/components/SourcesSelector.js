@@ -11,7 +11,7 @@ class SourcesSelector extends Component {
 
   render () {
     return (
-      <SelectField style={{fontFamily: 'Raleway'}} onChange={this.handleSelect.bind(this)} floatingLabelText="Choose a Section">
+      <SelectField style={{fontFamily: 'Raleway', color: '#999'}} onChange={this.handleSelect.bind(this)} floatingLabelText="Choose a Section">
         <MenuItem value='us' primaryText="US News" label="US News"/>
         <MenuItem value='international' primaryText="International News" label="International News" />
         <MenuItem value='sports' primaryText="Sports" label="Sports"/>

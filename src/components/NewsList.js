@@ -28,9 +28,9 @@ class NewsList extends Component {
       <div>
         <h1>New Articles</h1>
         {this.props.articles.map(a => {
-          return (  
+          return ( 
             <a key={a.title} href={a.url}>
-              <Card key={a.title} style={styles}>
+              <Card style={styles}>
                 <CardHeader title={a.title}  style={{height: 125}}/>
                 <CardMedia style={cardMediaStyles}>
                   <img src={a.urlToImage} />
