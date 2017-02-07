@@ -1,1 +1,2 @@
 export const FETCH_NEWS_FEED = 'FETCH_NEWS_FEED';
+export const SHOW_FOOTER = 'SHOW_FOOTER';

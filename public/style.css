@@ -2,3 +2,14 @@ body {
   font-family: "Raleway", sans-serif;
   background: linear-gradient(135deg, #F7F7F7, #D7D7D7);
 }
+
+.footer {
+  display: flex;
+  background: #222;
+  height: 80px;
+  margin-top: 4rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
