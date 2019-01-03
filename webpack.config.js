@@ -11,6 +11,9 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './'
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
+  },
   module: {
     loaders: [
       {
